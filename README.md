@@ -1,11 +1,11 @@
 # terraform-balanced-aws-network
 
-[![open-issues](https://img.shields.io/github/issues-raw/insight-infrastructure/terraform-balanced-aws-network?style=for-the-badge)](https://github.com/insight-infrastructure/terraform-balanced-aws-network/issues)
-[![open-pr](https://img.shields.io/github/issues-pr-raw/insight-infrastructure/terraform-balanced-aws-network?style=for-the-badge)](https://github.com/insight-infrastructure/terraform-balanced-aws-network/pulls)
+[![open-issues](https://img.shields.io/github/issues-raw/insight-icon/terraform-balanced-aws-network?style=for-the-badge)](https://github.com/insight-icon/terraform-balanced-aws-network/issues)
+[![open-pr](https://img.shields.io/github/issues-pr-raw/insight-icon/terraform-balanced-aws-network?style=for-the-badge)](https://github.com/insight-icon/terraform-balanced-aws-network/pulls)
 
 ## Features
 
-This module...
+This module sets up the networking for the [Balanced network](https://balanced.network/).
 
 ## Terraform Versions
 
@@ -13,15 +13,17 @@ For Terraform v0.12.0+
 
 ## Usage
 
-```
+```hcl-terraform
 module "this" {
-    source = "github.com/insight-infrastructure/terraform-balanced-aws-network"
-
+  source = "github.com/insight-icon/terraform-balanced-aws-network"
+  id          = random_pet.this.id
+  bucket_name = random_pet.this.id
+  public_key_paths = [var.public_key_path]
 }
 ```
 ## Examples
 
-- [defaults](https://github.com/insight-infrastructure/terraform-balanced-aws-network/tree/master/examples/defaults)
+- [defaults](https://github.com/insight-icon/terraform-balanced-aws-network/tree/master/examples/defaults)
 
 ## Known  Issues
 No issue is creating limit on this module.
@@ -96,11 +98,7 @@ To run them:
 
 ## Authors
 
-Module managed by [insight-infrastructure](https://github.com/insight-infrastructure)
-
-## Credits
-
-- [Anton Babenko](https://github.com/antonbabenko)
+Module managed by [insight-icon](https://github.com/insight-icon)
 
 ## License
 

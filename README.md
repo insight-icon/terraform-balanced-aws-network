@@ -39,7 +39,7 @@ No issue is creating limit on this module.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:-----:|
 | allow\_ssh\_commands | Allows the SSH user to execute one-off commands. Pass 'True' to enable. Warning: These commands are not logged and increase the vulnerability of the system. Use at your own discretion. | `string` | `""` | no |
-| azs | List of availability zones | `list(string)` | `[]` | no |
+| azs | List of availability zones | `list(string)` | n/a | yes |
 | bastion\_host\_name | The hostname for bastion | `string` | `"bastion"` | no |
 | bastion\_monitoring\_enabled | Cloudwatch monitoring on bastion | `bool` | `true` | no |
 | bucket\_force\_destroy | The bucket and all objects should be destroyed when using true | `bool` | `false` | no |
@@ -58,8 +58,7 @@ No issue is creating limit on this module.
 | log\_expiry\_days | Number of days before logs expiration | `number` | `90` | no |
 | log\_glacier\_days | Number of days before moving logs to Glacier | `number` | `60` | no |
 | log\_standard\_ia\_days | Number of days before moving logs to IA Storage | `number` | `30` | no |
-| num\_azs | The number of AZs to deploy into | `number` | `3` | no |
-| private\_subnets | The subnet ranges | `list(string)` | <pre>[<br>  "10.1.100.0/20",<br>  "10.0.116.0/20",<br>  "10.0.132.0/20"<br>]</pre> | no |
+| private\_subnets | The subnet ranges | `list(string)` | <pre>[<br>  "10.0.100.0/20",<br>  "10.0.116.0/20",<br>  "10.0.132.0/20"<br>]</pre> | no |
 | public\_key\_paths | List of paths to public ssh keys | `list(string)` | `[]` | no |
 | public\_ssh\_port | Set the SSH port to use from desktop to the bastion | `number` | `22` | no |
 | public\_subnets | The subnet ranges | `list(string)` | <pre>[<br>  "10.0.0.0/20",<br>  "10.0.16.0/20",<br>  "10.0.32.0/20"<br>]</pre> | no |

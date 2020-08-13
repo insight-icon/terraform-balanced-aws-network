@@ -10,13 +10,11 @@ variable "vpc_name" {
 variable "azs" {
   description = "List of availability zones"
   type        = list(string)
-  default     = []
+  default     = null
 }
 
-variable "num_azs" {
-  description = "The number of AZs to deploy into"
-  type        = number
-  default     = 3
+locals {
+  azs = var.azs == null ? [for i in ["a", "b", "c"] : "${data.aws_region.this.name}${i}"] : var.azs
 }
 
 variable "cidr" {
@@ -34,9 +32,8 @@ variable "public_subnets" {
 variable "private_subnets" {
   description = "The subnet ranges"
   type        = list(string)
-  default     = ["10.1.100.0/20", "10.0.116.0/20", "10.0.132.0/20"]
+  default     = ["10.0.100.0/20", "10.0.116.0/20", "10.0.132.0/20"]
 }
-
 
 module "vpc" {
   source = "github.com/terraform-aws-modules/terraform-aws-vpc.git?ref=v2.15.0"
@@ -51,7 +48,7 @@ module "vpc" {
   enable_dns_hostnames = true
   enable_dns_support   = true
 
-  azs  = var.azs
+  azs  = local.azs
   cidr = var.cidr
 
   public_subnets  = var.public_subnets

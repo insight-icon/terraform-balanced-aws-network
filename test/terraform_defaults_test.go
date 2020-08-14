@@ -37,7 +37,7 @@ func TestTerraformDefaults(t *testing.T) {
 func configureTerraformOptions(t *testing.T, exampleFolder string) (*terraform.Options, *aws.Ec2Keypair) {
 
 	uniqueID := random.UniqueId()
-	awsRegion := aws.GetRandomStableRegion(t, nil, nil)
+	awsRegion := "us-east-1"
 
 	keyPairName := fmt.Sprintf("terratest-ssh-example-%s", uniqueID)
 	keyPair := aws.CreateAndImportEC2KeyPair(t, awsRegion, keyPairName)
@@ -60,7 +60,7 @@ func configureTerraformOptions(t *testing.T, exampleFolder string) (*terraform.O
 		// Variables to pass to our Terraform code using -var options
 		Vars: map[string]interface{}{
 			"aws_region":    awsRegion,
-// 			"public_key_path":    publicKeyPath,
+			"public_key_path":    publicKeyPath,
 // 			"private_key_path": privateKeyPath,
 		},
 	}

@@ -21,6 +21,10 @@ output "sg_rds_id" {
   value = join("", aws_security_group.rds.*.id)
 }
 
+output "sg_msk_id" {
+  value = join("", aws_security_group.msk.*.id)
+}
+
 #########
 # Bastion
 #########

@@ -81,6 +81,7 @@ No issue is creating limit on this module.
 | sg\_bastion\_private\_id | n/a |
 | sg\_bastion\_public\_id | #### sgs #### |
 | sg\_eks\_id | n/a |
+| sg\_msk\_id | n/a |
 | sg\_prometheus\_id | n/a |
 | sg\_rds\_id | n/a |
 | vpc\_id | #### VPC #### |
